@@ -1,0 +1,563 @@
+h = 7, g=0, f = 7
+
+0------------------------
+
+Board with least f = 7
+2 8 1
+0 4 3
+7 6 5
+
+open list: []
+close list: [
+2 8 1
+0 4 3
+7 6 5
+]
+white tile index: 3
+
+Neighbors: 
+2 8 1
+4 0 3
+7 6 5
+
+h = 8, g=1, f = 9
+3. Not in both set!
+
+Neighbors: 
+2 8 1
+7 4 3
+0 6 5
+
+h = 8, g=1, f = 9
+3. Not in both set!
+
+Neighbors: 
+0 8 1
+2 4 3
+7 6 5
+
+h = 8, g=1, f = 9
+3. Not in both set!
+
+1------------------------
+
+Board with least f = 9
+2 8 1
+4 0 3
+7 6 5
+
+open list: [
+2 8 1
+4 0 3
+7 6 5
+, 
+2 8 1
+7 4 3
+0 6 5
+, 
+0 8 1
+2 4 3
+7 6 5
+]
+close list: [
+2 8 1
+0 4 3
+7 6 5
+, 
+2 8 1
+4 0 3
+7 6 5
+]
+white tile index: 4
+
+Neighbors: 
+2 8 1
+4 3 0
+7 6 5
+
+h = 9, g=2, f = 11
+3. Not in both set!
+
+Neighbors: 
+2 8 1
+4 6 3
+7 0 5
+
+h = 9, g=2, f = 11
+3. Not in both set!
+
+Neighbors: 
+2 8 1
+0 4 3
+7 6 5
+
+close temp.g = 0 do nothing!
+
+Neighbors: 
+2 0 1
+4 8 3
+7 6 5
+
+h = 7, g=2, f = 9
+3. Not in both set!
+
+2------------------------
+
+Board with least f = 9
+2 8 1
+4 0 3
+7 6 5
+
+open list: [
+2 8 1
+4 0 3
+7 6 5
+, 
+2 8 1
+7 4 3
+0 6 5
+, 
+0 8 1
+2 4 3
+7 6 5
+, 
+2 0 1
+4 8 3
+7 6 5
+, 
+2 8 1
+4 3 0
+7 6 5
+, 
+2 8 1
+4 6 3
+7 0 5
+]
+close list: [
+2 8 1
+0 4 3
+7 6 5
+, 
+2 8 1
+4 0 3
+7 6 5
+]
+white tile index: 4
+
+Neighbors: 
+2 8 1
+4 3 0
+7 6 5
+
+h = 9, g=3, f = 12
+3. Not in both set!
+
+Neighbors: 
+2 8 1
+4 6 3
+7 0 5
+
+h = 9, g=3, f = 12
+3. Not in both set!
+
+Neighbors: 
+2 8 1
+0 4 3
+7 6 5
+
+close temp.g = 0 do nothing!
+
+Neighbors: 
+2 0 1
+4 8 3
+7 6 5
+
+h = 7, g=3, f = 10
+3. Not in both set!
+
+3------------------------
+
+Board with least f = 9
+2 8 1
+4 0 3
+7 6 5
+
+open list: [
+2 8 1
+4 0 3
+7 6 5
+, 
+2 8 1
+7 4 3
+0 6 5
+, 
+0 8 1
+2 4 3
+7 6 5
+, 
+2 0 1
+4 8 3
+7 6 5
+, 
+2 8 1
+4 3 0
+7 6 5
+, 
+2 8 1
+4 6 3
+7 0 5
+]
+close list: [
+2 8 1
+0 4 3
+7 6 5
+, 
+2 8 1
+4 0 3
+7 6 5
+]
+white tile index: 4
+
+Neighbors: 
+2 8 1
+4 3 0
+7 6 5
+
+h = 9, g=4, f = 13
+3. Not in both set!
+
+Neighbors: 
+2 8 1
+4 6 3
+7 0 5
+
+h = 9, g=4, f = 13
+3. Not in both set!
+
+Neighbors: 
+2 8 1
+0 4 3
+7 6 5
+
+close temp.g = 0 do nothing!
+
+Neighbors: 
+2 0 1
+4 8 3
+7 6 5
+
+h = 7, g=4, f = 11
+3. Not in both set!
+
+4------------------------
+
+Board with least f = 9
+2 8 1
+4 0 3
+7 6 5
+
+open list: [
+2 8 1
+4 0 3
+7 6 5
+, 
+2 8 1
+7 4 3
+0 6 5
+, 
+0 8 1
+2 4 3
+7 6 5
+, 
+2 0 1
+4 8 3
+7 6 5
+, 
+2 8 1
+4 3 0
+7 6 5
+, 
+2 8 1
+4 6 3
+7 0 5
+, 
+2 0 1
+4 8 3
+7 6 5
+]
+close list: [
+2 8 1
+0 4 3
+7 6 5
+, 
+2 8 1
+4 0 3
+7 6 5
+]
+white tile index: 4
+
+Neighbors: 
+2 8 1
+4 3 0
+7 6 5
+
+h = 9, g=5, f = 14
+3. Not in both set!
+
+Neighbors: 
+2 8 1
+4 6 3
+7 0 5
+
+h = 9, g=5, f = 14
+3. Not in both set!
+
+Neighbors: 
+2 8 1
+0 4 3
+7 6 5
+
+close temp.g = 0 do nothing!
+
+Neighbors: 
+2 0 1
+4 8 3
+7 6 5
+
+h = 7, g=5, f = 12
+3. Not in both set!
+
+5------------------------
+
+Board with least f = 9
+2 8 1
+4 0 3
+7 6 5
+
+open list: [
+2 8 1
+4 0 3
+7 6 5
+, 
+2 8 1
+7 4 3
+0 6 5
+, 
+0 8 1
+2 4 3
+7 6 5
+, 
+2 0 1
+4 8 3
+7 6 5
+, 
+2 8 1
+4 3 0
+7 6 5
+, 
+2 8 1
+4 6 3
+7 0 5
+, 
+2 0 1
+4 8 3
+7 6 5
+]
+close list: [
+2 8 1
+0 4 3
+7 6 5
+, 
+2 8 1
+4 0 3
+7 6 5
+]
+white tile index: 4
+
+Neighbors: 
+2 8 1
+4 3 0
+7 6 5
+
+h = 9, g=6, f = 15
+3. Not in both set!
+
+Neighbors: 
+2 8 1
+4 6 3
+7 0 5
+
+h = 9, g=6, f = 15
+3. Not in both set!
+
+Neighbors: 
+2 8 1
+0 4 3
+7 6 5
+
+close temp.g = 0 do nothing!
+
+Neighbors: 
+2 0 1
+4 8 3
+7 6 5
+
+h = 7, g=6, f = 13
+3. Not in both set!
+
+6------------------------
+
+Board with least f = 9
+2 8 1
+4 0 3
+7 6 5
+
+open list: [
+2 8 1
+4 0 3
+7 6 5
+, 
+2 8 1
+7 4 3
+0 6 5
+, 
+0 8 1
+2 4 3
+7 6 5
+, 
+2 0 1
+4 8 3
+7 6 5
+, 
+2 8 1
+4 3 0
+7 6 5
+, 
+2 8 1
+4 6 3
+7 0 5
+, 
+2 0 1
+4 8 3
+7 6 5
+]
+close list: [
+2 8 1
+0 4 3
+7 6 5
+, 
+2 8 1
+4 0 3
+7 6 5
+]
+white tile index: 4
+
+Neighbors: 
+2 8 1
+4 3 0
+7 6 5
+
+h = 9, g=7, f = 16
+3. Not in both set!
+
+Neighbors: 
+2 8 1
+4 6 3
+7 0 5
+
+h = 9, g=7, f = 16
+3. Not in both set!
+
+Neighbors: 
+2 8 1
+0 4 3
+7 6 5
+
+close temp.g = 0 do nothing!
+
+Neighbors: 
+2 0 1
+4 8 3
+7 6 5
+
+h = 7, g=7, f = 14
+3. Not in both set!
+
+7------------------------
+
+Board with least f = 9
+2 8 1
+4 0 3
+7 6 5
+
+open list: [
+2 8 1
+4 0 3
+7 6 5
+, 
+2 8 1
+7 4 3
+0 6 5
+, 
+0 8 1
+2 4 3
+7 6 5
+, 
+2 0 1
+4 8 3
+7 6 5
+, 
+2 8 1
+4 3 0
+7 6 5
+, 
+2 8 1
+4 6 3
+7 0 5
+, 
+2 0 1
+4 8 3
+7 6 5
+]
+close list: [
+2 8 1
+0 4 3
+7 6 5
+, 
+2 8 1
+4 0 3
+7 6 5
+]
+white tile index: 4
+
+Neighbors: 
+2 8 1
+4 3 0
+7 6 5
+
+h = 9, g=8, f = 17
+3. Not in both set!
+
+Neighbors: 
+2 8 1
+4 6 3
+7 0 5
+
+h = 9, g=8, f = 17
+3. Not in both set!
+
+Neighbors: 
+2 8 1
+0 4 3
+7 6 5
+
+close temp.g = 0 do nothing!
+
+Neighbors: 
+2 0 1
+4 8 3
+7 6 5
+
+h = 7, g=8, f = 15
+3. Not in both set!
+(base) Aimees-MBP:Heuristic-Search-8-Puzzle-Problem-master aimee$ 
