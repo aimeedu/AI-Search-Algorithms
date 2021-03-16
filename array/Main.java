@@ -16,30 +16,34 @@ public class Main{
     
         ArrayList<int[]> a = new ArrayList<>();
         String[] name = new String[]{"Easy", "Medium", "Hard"};
-        a.add(easy);
+        // a.add(easy);
         a.add(medium);
-        a.add(hard);
-
+        // a.add(hard);
 
         for (int i=0; i<a.size(); i++){ 
             System.out.print(name[i]+" : \n");
             Puzzle p = new Puzzle(dim, goal, a.get(i));
-            p.solve_misplaced();
-            p.solve_manhattan();
-            System.out.print("------------------------------------------------------------\n");
-        }
-        
-        
-        // // 1. misplaced heuristic A*
-       
-        // // 2. Manhattan heuristic A* -> f(n) = g(n) current steps + h(n) heuristic value
-        
 
-        
-        
-        // // 3. Iterative deepening A* with Manhattan heuristic.
-        // p.solve_IDA_manhattan();
-        // // 4. Depth-first Branch and Bound with Manhattan heuristic. 
-        // p.solve_DFBB_manhattan();
+            // // 1. misplaced heuristic A*
+            // p.solve_misplaced();
+            // System.out.print("----------------------------------------------------------------------\n");
+            
+            // // 2. Manhattan heuristic A* -> f(n) = g(n) current steps + h(n) heuristic value
+            // p.solve_manhattan();
+            // System.out.print("----------------------------------------------------------------------\n");
+
+            // // 3. Iterative deepening A* with Manhattan heuristic.
+            // p.solve_IDA_manhattan();
+            // System.out.print("----------------------------------------------------------------------\n");
+
+            // 4. Depth-first Branch and Bound with Manhattan heuristic. 
+            p.solve_DFBB_manhattan();
+
+            // Stack<Integer> s = new Stack<>();
+            // s.push(1);
+            // s.push(2);
+            // s.push(3);
+            // System.out.print(s.peek());
+        }
     }
 }

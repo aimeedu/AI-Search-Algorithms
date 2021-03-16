@@ -37,8 +37,12 @@ public class Node implements Comparable<Node>{
         this.parent = p;
     } 
 
+    public void set_g(int g){
+        this.g = g;
+    }
+
     // calculate Misplaced heuristics
-    public void h_misplaced(int[] goal, int[] board, int g){
+    public void h_misplaced(int[] goal, int[] board){
         int h = 0;
         for(int i=0; i<board.length; i++){
             int tile = board[i];
@@ -46,7 +50,7 @@ public class Node implements Comparable<Node>{
                 h++;
             }
         }
-        this.g = g;
+        // this.g = g;
         this.h = h;
         this.f = h + g;
         return;
@@ -61,7 +65,7 @@ public class Node implements Comparable<Node>{
     }
 
     // calculate Manhattan heuristics
-    public void h_manhattan(int[] goal, int[] board, int g) {
+    public void h_manhattan(int[] goal, int[] board) {
         int dim =3;
         int h = 0;
         for(int i = 0; i<goal.length; i++){
@@ -73,7 +77,7 @@ public class Node implements Comparable<Node>{
                 h += (step); 
             }
         }
-        this.g = g;
+        // this.g = g;
         this.h = h;
         this.f = h + g;
         // System.out.println("g = " + this.g +", h="+this.h+ ", f = " + this.f);
@@ -100,7 +104,6 @@ public class Node implements Comparable<Node>{
         if (obj == null) return false;
         if (!(obj instanceof Node)) return false;
         Node node = (Node) obj;
-
         if(Arrays.equals(this.board, node.board)){
             return true;
         }
@@ -109,19 +112,20 @@ public class Node implements Comparable<Node>{
 
     @Override
     public int compareTo(Node n) {
-        if (this.equals(n)) {
-            return 0;
-        }
-        else{
-            if (this.f != n.f) {
-                return this.f-n.f;
-            }else if (this.h != n.h){
-                return this.h-n.h;
-            }else if (this.g != n.g){
-                return this.g-n.g;
-            }
-            else return this.id-n.id;
-        }
+        return this.f-n.f;
+        // if (this.equals(n)) {
+        //     return 0;
+        // }
+        // else{
+        //     if (this.f != n.f) {
+        //         return this.f-n.f;
+        //     }else if (this.h != n.h){
+        //         return this.h-n.h;
+        //     }else if (this.g != n.g){
+        //         return this.g-n.g;
+        //     }
+        //     else return this.id-n.id;
+        // }
 
     }
 }

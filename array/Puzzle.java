@@ -22,8 +22,8 @@ public class Puzzle{
         this.start = start_arr;
         this.goal_node = new Node(0, goal_arr, 0, 0, 0); // goal node has id = 0
         this.start_node = new Node(1, start_arr, 0); // start id = 1
-        this.start_node.h_manhattan(goal_arr, start_arr, 0); // calculate heuristic for starting node.
-        this.start_node.h_misplaced(goal_arr, start_arr, 0); // calculate heuristic for starting node.
+        this.start_node.h_manhattan(goal_arr, start_arr); // calculate heuristic for starting node.
+        this.start_node.h_misplaced(goal_arr, start_arr); // calculate heuristic for starting node.
     }
 
     // in class methods
@@ -106,8 +106,23 @@ public class Puzzle{
         return count==2;
     }
 
-    public int solve_manhattan(){
-        
+    public int build_sequence(Node cur){
+        List<Node> res = new ArrayList<>();
+        while(cur != null){
+            res.add(0,cur);
+            cur = cur.parent;
+        }
+        int i = -1;
+        for (Node n : res){
+            i++;
+            // System.out.print("Step : "+ i + n+"\n");
+            
+        }
+        // System.out.println("The shortest path is " + i + " steps.");
+        return i;
+    }
+
+    public void solve_manhattan(){ 
         long startTime = System.currentTimeMillis();
         boolean end = false;
         TreeSet<Node> open, close;
@@ -135,41 +150,34 @@ public class Puzzle{
                 end = true;
                 long endTime = System.currentTimeMillis();
                 // System.out.println("Found path with " + g + " Steps!");
-                
-                System.out.printf("Total time to solve A * with Manhattan heuristic : " + (endTime-startTime)/1000.0 + " Seconds\n");
-                System.out.println("Number of Nodes expanded : " + total_expand_nodes);
-                return total_expand_nodes; // we want to return sequence of Node.
+                System.out.printf("Total time to solve A * with Manhattan heuristic : " + (endTime-startTime) + " ms\n");
+                System.out.println("Number of Nodes expanded : " + total_expand_nodes+"\n");
+                build_sequence(cur);
+                return; // we want to return sequence of Node.
             
             }else{
                 g++; // take one more step to check neighbors.
                 // build all neighbor's board after move the white tile, and check one by one.
                 List<int[]> neighbors = getNeighbors(cur.board);
                 for (int[] n : neighbors){
-                    // System.out.println("--------------");
                     Node node = new Node(n);
-                    node.h_manhattan(goal, n, g);
+                    node.set_g(g);
+                    node.h_manhattan(goal, n);
                     node.setParent(cur);
                     if (cur.parent == null || !node.equals(cur.parent) ){
                         // print current neighbor.
-                        // System.out.println("\nNeighbor: "+node.toString());
-                        
+                        // System.out.println("\nNeighbor: "+node.toString());                       
                         if (close.contains(node)){
                             Node temp = close.floor(node);
-                            // System.out.println("close temp.g = "+ temp.g + " do nothing!");
                             if (g<temp.g){
                                 System.out.println("close contains node! current g is lower.");
                                 close.remove(temp);
-                                // node.g = g;
-                                // node.parent = cur;
-                                // node.h_manhattan(goal, n, g);
                                 node.setId(n_id);
                                 n_id++;
                                 open.add(node);
                             }
-
                         }else if(open.contains(node)){
                             Node temp = open.floor(node);
-                            // System.out.println("open temp.g = "+ temp.g + " do nothing!");
                             if(g<temp.g){
                                 System.out.println("open contains node! current g is lower.");
                                 temp.g = g;
@@ -177,29 +185,22 @@ public class Puzzle{
                             }
 
                         }else{
-                            // System.out.println("3. Not in both set!");
-                            // node.g = g;
-                            // node.parent = cur;
-                            // node.h_manhattan(goal, n,g); // calculate h and f.
-                            // System.out.print("h="+temp+ ", g="+node.g+", f=" +node.f +"\n");
                             node.setId(n_id);
                             n_id++;
-                            open.add(node);
-                            
+                            open.add(node);  
                         }
                         // System.out.println("\nNeighbor: "+node.toString());
                     }
-
                 }
                 // System.out.println("open list: "+ open);
                 // System.out.println("close list: "+ close);
             }
             // g++;
         }
-        return total_expand_nodes;
+        return;
     }
 
-    public int solve_misplaced(){
+    public void solve_misplaced(){
         TreeSet<Node> open, close;
         long startTime = System.currentTimeMillis();
         boolean end = false;
@@ -224,10 +225,10 @@ public class Puzzle{
                 end = true;
                 long endTime = System.currentTimeMillis();
                 // System.out.println("Found path with " + g + " Steps!");
-                System.out.printf("Total time to solve A * with Misplaced heuristic : " + (endTime-startTime)/1000.0 + " Seconds\n");
-                System.out.println("Number of Nodes expanded : " + total_expand_nodes);
-                
-                return total_expand_nodes; // we want to return sequence of Node.
+                System.out.printf("Total time to solve A * with Misplaced heuristic : " + (endTime-startTime) + " ms\n");
+                System.out.println("Number of Nodes expanded : " + total_expand_nodes + "\n");
+                build_sequence(cur);
+                return; // we want to return sequence of Node.
             
             }else{
                 g++; // take one more step to check neighbors.
@@ -236,7 +237,8 @@ public class Puzzle{
                 for (int[] n : neighbors){
                     // System.out.println("--------------");
                     Node node = new Node(n);
-                    node.h_misplaced(goal, n, g);
+                    node.set_g(g);
+                    node.h_misplaced(goal, n);
                     node.setParent(cur);
                     if (cur.parent == null || !node.equals(cur.parent) ){
                         // print current neighbor.
@@ -285,15 +287,61 @@ public class Puzzle{
             }
             // g++;
         }
-        return total_expand_nodes;
-    }
-
-    public void solve_IDA_manhattan(){
-
+        return;
     }
 
     public void solve_DFBB_manhattan(){
+        long startTime = System.currentTimeMillis();
+        Stack<Node> open = new Stack<>();
+        open.push(start_node);
+        int L = 100000;
+        int g = 0; 
+        int total_expand_nodes = 0;
+        while(g<10){//!open.isEmpty()
+            // System.out.println(open);
+            Node cur = open.pop();
+            // g--;
+            System.out.println(cur);
+            total_expand_nodes++;
+            if (cur.equals(goal_node)){
+                int cost = build_sequence(cur);
+                L = Math.min(L, cost);  
+                System.out.println(L); 
+            }else{
+                g++;
+                List<int[]> neighbors = getNeighbors(cur.board);
+                PriorityQueue<Node> temp = new PriorityQueue<>((a,b)->b.f-a.f);
+                for (int[] n : neighbors){
+                    Node node = new Node(n);
+                    // if (!open.contains(node)){
+                        node.set_g(g);
+                        node.h_manhattan(goal, n);
+                        node.setParent(cur);
+                    
+                        if (cur.parent == null || !node.equals(cur.parent) ){
+                            int cost = build_sequence(node);
+                            if (cost <= L){
+                                temp.offer(node);
+                            }
+                        }
+                    // }
 
+
+                }
+                while(!temp.isEmpty()){
+                    open.push(temp.poll());
+                }
+            }
+        }
+        long endTime = System.currentTimeMillis();
+        // System.out.println("Found path with " + g + " Steps!");
+        System.out.printf("Time to solve Depth-first Branch and Bound with Manhattan heuristic : " + (endTime-startTime) + " ms\n");
+        System.out.println("Number of Nodes expanded : " + total_expand_nodes+"\n");
+        System.out.print("Optimal path : " + L +"\n");
     }
-}
 
+    public void solve_IDA_manhattan(){
+        return;
+    }
+
+}
