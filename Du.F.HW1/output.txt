@@ -1,0 +1,679 @@
+Easy : 
+
+1. A* Manhattan ----------------------------------------------------------------------
+Total time to solve A * with Manhattan heuristic : 2 ms
+Number of Nodes expanded : 6
+
+Optimal Sequence : 
+Step : 0
+1 3 4
+8 6 2
+7 0 5
+
+Step : 1
+1 3 4
+8 0 2
+7 6 5
+
+Step : 2
+1 3 4
+8 2 0
+7 6 5
+
+Step : 3
+1 3 0
+8 2 4
+7 6 5
+
+Step : 4
+1 0 3
+8 2 4
+7 6 5
+
+Step : 5
+1 2 3
+8 0 4
+7 6 5
+
+The shortest path is 5 steps.
+
+2. A* Misplaced ----------------------------------------------------------------------
+Total time to solve A * with Misplaced heuristic : 0 ms
+Number of Nodes expanded : 7
+
+3. IDA* Manhattan ----------------------------------------------------------------------
+
+N_iter = 1, L = 5 ------------------------
+
+Time to finish DFBnB : 8 ms
+Nodes expanded when finished : 33 nodes.
+
+N_iter = 2, L = 7 ------------------------
+Time to find an optimal solution DFBnB : 0 ms
+Nodes expanded : 6 nodes.
+End L (length of optimal path) : 5
+
+Time to finish DFBnB : 1 ms
+Nodes expanded when finished : 35 nodes.
+
+Number of Nodes expanded IDA* : 68 nodes.
+Time to solve IDA* with Manhattan heuristic : 9 ms
+
+4. Depth-first Branch and Bound --------------------------------------------------------
+Time to find an optimal solution DFBnB : 0 ms
+Nodes expanded : 6 nodes.
+End L (length of optimal path) : 5
+
+Time to finish DFBnB : 0 ms
+Nodes expanded when finished : 35 nodes.
+
+
+Medium : 
+
+1. A* Manhattan ----------------------------------------------------------------------
+Total time to solve A * with Manhattan heuristic : 1 ms
+Number of Nodes expanded : 10
+
+Optimal Sequence : 
+Step : 0
+2 8 1
+0 4 3
+7 6 5
+
+Step : 1
+0 8 1
+2 4 3
+7 6 5
+
+Step : 2
+8 0 1
+2 4 3
+7 6 5
+
+Step : 3
+8 1 0
+2 4 3
+7 6 5
+
+Step : 4
+8 1 3
+2 4 0
+7 6 5
+
+Step : 5
+8 1 3
+2 0 4
+7 6 5
+
+Step : 6
+8 1 3
+0 2 4
+7 6 5
+
+Step : 7
+0 1 3
+8 2 4
+7 6 5
+
+Step : 8
+1 0 3
+8 2 4
+7 6 5
+
+Step : 9
+1 2 3
+8 0 4
+7 6 5
+
+The shortest path is 9 steps.
+
+2. A* Misplaced ----------------------------------------------------------------------
+Total time to solve A * with Misplaced heuristic : 2 ms
+Number of Nodes expanded : 163
+
+3. IDA* Manhattan ----------------------------------------------------------------------
+
+N_iter = 1, L = 7 ------------------------
+
+Time to finish DFBnB : 1 ms
+Nodes expanded when finished : 105 nodes.
+
+N_iter = 2, L = 9 ------------------------
+
+Time to finish DFBnB : 2 ms
+Nodes expanded when finished : 321 nodes.
+
+N_iter = 3, L = 11 ------------------------
+Time to find an optimal solution DFBnB : 2 ms
+Nodes expanded : 252 nodes.
+End L (length of optimal path) : 9
+
+Time to finish DFBnB : 2 ms
+Nodes expanded when finished : 485 nodes.
+
+Number of Nodes expanded IDA* : 911 nodes.
+Time to solve IDA* with Manhattan heuristic : 6 ms
+
+4. Depth-first Branch and Bound --------------------------------------------------------
+Time to find an optimal solution DFBnB : 72 ms
+Nodes expanded : 19716 nodes.
+End L (length of optimal path) : 33
+Time to find an optimal solution DFBnB : 91 ms
+Nodes expanded : 25544 nodes.
+End L (length of optimal path) : 31
+Time to find an optimal solution DFBnB : 332 ms
+Nodes expanded : 137323 nodes.
+End L (length of optimal path) : 29
+Time to find an optimal solution DFBnB : 577 ms
+Nodes expanded : 315200 nodes.
+End L (length of optimal path) : 27
+Time to find an optimal solution DFBnB : 709 ms
+Nodes expanded : 427468 nodes.
+End L (length of optimal path) : 25
+Time to find an optimal solution DFBnB : 857 ms
+Nodes expanded : 543135 nodes.
+End L (length of optimal path) : 21
+Time to find an optimal solution DFBnB : 894 ms
+Nodes expanded : 582492 nodes.
+End L (length of optimal path) : 9
+
+Time to finish DFBnB : 895 ms
+Nodes expanded when finished : 582725 nodes.
+
+
+Hard : 
+
+1. A* Manhattan ----------------------------------------------------------------------
+Total time to solve A * with Manhattan heuristic : 3 ms
+Number of Nodes expanded : 904
+
+Optimal Sequence : 
+Step : 0
+2 8 1
+4 6 3
+0 7 5
+
+Step : 1
+2 8 1
+4 6 3
+7 0 5
+
+Step : 2
+2 8 1
+4 0 3
+7 6 5
+
+Step : 3
+2 8 1
+0 4 3
+7 6 5
+
+Step : 4
+0 8 1
+2 4 3
+7 6 5
+
+Step : 5
+8 0 1
+2 4 3
+7 6 5
+
+Step : 6
+8 1 0
+2 4 3
+7 6 5
+
+Step : 7
+8 1 3
+2 4 0
+7 6 5
+
+Step : 8
+8 1 3
+2 0 4
+7 6 5
+
+Step : 9
+8 1 3
+0 2 4
+7 6 5
+
+Step : 10
+0 1 3
+8 2 4
+7 6 5
+
+Step : 11
+1 0 3
+8 2 4
+7 6 5
+
+Step : 12
+1 2 3
+8 0 4
+7 6 5
+
+The shortest path is 12 steps.
+
+2. A* Misplaced ----------------------------------------------------------------------
+Total time to solve A * with Misplaced heuristic : 3 ms
+Number of Nodes expanded : 1007
+
+3. IDA* Manhattan ----------------------------------------------------------------------
+
+N_iter = 1, L = 10 ------------------------
+
+Time to finish DFBnB : 1 ms
+Nodes expanded when finished : 483 nodes.
+
+N_iter = 2, L = 12 ------------------------
+
+Time to finish DFBnB : 4 ms
+Nodes expanded when finished : 1455 nodes.
+
+N_iter = 3, L = 14 ------------------------
+Time to find an optimal solution DFBnB : 0 ms
+Nodes expanded : 13 nodes.
+End L (length of optimal path) : 12
+
+Time to finish DFBnB : 5 ms
+Nodes expanded when finished : 1457 nodes.
+
+Number of Nodes expanded IDA* : 3395 nodes.
+Time to solve IDA* with Manhattan heuristic : 10 ms
+
+4. Depth-first Branch and Bound --------------------------------------------------------
+Time to find an optimal solution DFBnB : 0 ms
+Nodes expanded : 13 nodes.
+End L (length of optimal path) : 12
+
+Time to finish DFBnB : 3 ms
+Nodes expanded when finished : 1457 nodes.
+
+
+Worst : 
+
+1. A* Manhattan ----------------------------------------------------------------------
+Easy : 
+
+3. IDA* Manhattan ----------------------------------------------------------------------
+
+N_iter = 1, L = 24 ------------------------
+
+Time to finish DFBnB : 1653 ms
+Nodes expanded when finished : 1417173 nodes.
+
+N_iter = 2, L = 26 ------------------------
+
+Time to finish DFBnB : 4702 ms
+Nodes expanded when finished : 4251525 nodes.
+
+N_iter = 3, L = 28 ------------------------
+
+Time to finish DFBnB : 15023 ms
+Nodes expanded when finished : 12754581 nodes.
+
+N_iter = 4, L = 30 ------------------------
+
+Time to finish DFBnB : 45138 ms
+Nodes expanded when finished : 38263749 nodes.
+
+N_iter = 5, L = 32 ------------------------
+Time to find an optimal solution DFBnB : 4008 ms
+Nodes expanded : 3228523 nodes.
+End L (length of optimal path) : 30
+
+Time to finish DFBnB : 49129 ms
+Nodes expanded when finished : 40416083 nodes.
+
+Number of Nodes expanded IDA* : 97103111 nodes.
+Time to solve IDA* with Manhattan heuristic : 115663 ms
+
+4. Depth-first Branch and Bound --------------------------------------------------------
+Time to find an optimal solution DFBnB : 620 ms
+Nodes expanded : 516719 nodes.
+End L (length of optimal path) : 32
+Time to find an optimal solution DFBnB : 4466 ms
+Nodes expanded : 3649719 nodes.
+End L (length of optimal path) : 30
+
+Time to finish DFBnB : 48271 ms
+Nodes expanded when finished : 40837279 nodes.
+ 
+
+4. Depth-first Branch and Bound --------------------------------------------------------
+
+Optimal Sequence : 
+Step : 0
+5 6 7
+4 0 8
+3 2 1
+
+Step : 1
+5 6 7
+4 2 8
+3 0 1
+
+Step : 2
+5 6 7
+4 2 8
+0 3 1
+
+Step : 3
+5 6 7
+0 2 8
+4 3 1
+
+Step : 4
+0 6 7
+5 2 8
+4 3 1
+
+Step : 5
+6 0 7
+5 2 8
+4 3 1
+
+Step : 6
+6 2 7
+5 0 8
+4 3 1
+
+Step : 7
+6 2 7
+5 3 8
+4 0 1
+
+Step : 8
+6 2 7
+5 3 8
+0 4 1
+
+Step : 9
+6 2 7
+0 3 8
+5 4 1
+
+Step : 10
+0 2 7
+6 3 8
+5 4 1
+
+Step : 11
+2 0 7
+6 3 8
+5 4 1
+
+Step : 12
+2 3 7
+6 0 8
+5 4 1
+
+Step : 13
+2 3 7
+6 8 0
+5 4 1
+
+Step : 14
+2 3 0
+6 8 7
+5 4 1
+
+Step : 15
+2 0 3
+6 8 7
+5 4 1
+
+Step : 16
+2 8 3
+6 0 7
+5 4 1
+
+Step : 17
+2 8 3
+6 7 0
+5 4 1
+
+Step : 18
+2 8 3
+6 7 1
+5 4 0
+
+Step : 19
+2 8 3
+6 7 1
+5 0 4
+
+Step : 20
+2 8 3
+6 7 1
+0 5 4
+
+Step : 21
+2 8 3
+0 7 1
+6 5 4
+
+Step : 22
+2 8 3
+7 0 1
+6 5 4
+
+Step : 23
+2 8 3
+7 1 0
+6 5 4
+
+Step : 24
+2 8 3
+7 1 4
+6 5 0
+
+Step : 25
+2 8 3
+7 1 4
+6 0 5
+
+Step : 26
+2 8 3
+7 1 4
+0 6 5
+
+Step : 27
+2 8 3
+0 1 4
+7 6 5
+
+Step : 28
+2 8 3
+1 0 4
+7 6 5
+
+Step : 29
+2 0 3
+1 8 4
+7 6 5
+
+Step : 30
+0 2 3
+1 8 4
+7 6 5
+
+Step : 31
+1 2 3
+0 8 4
+7 6 5
+
+Step : 32
+1 2 3
+8 0 4
+7 6 5
+
+The shortest path is 32 steps.
+Time to find an optimal solution DFBnB : 931 ms
+Nodes expanded : 516719 nodes.
+End L (length of optimal path) : 32
+
+Optimal Sequence : 
+Step : 0
+5 6 7
+4 0 8
+3 2 1
+
+Step : 1
+5 6 7
+4 2 8
+3 0 1
+
+Step : 2
+5 6 7
+4 2 8
+0 3 1
+
+Step : 3
+5 6 7
+0 2 8
+4 3 1
+
+Step : 4
+0 6 7
+5 2 8
+4 3 1
+
+Step : 5
+6 0 7
+5 2 8
+4 3 1
+
+Step : 6
+6 7 0
+5 2 8
+4 3 1
+
+Step : 7
+6 7 8
+5 2 0
+4 3 1
+
+Step : 8
+6 7 8
+5 2 1
+4 3 0
+
+Step : 9
+6 7 8
+5 2 1
+4 0 3
+
+Step : 10
+6 7 8
+5 2 1
+0 4 3
+
+Step : 11
+6 7 8
+0 2 1
+5 4 3
+
+Step : 12
+0 7 8
+6 2 1
+5 4 3
+
+Step : 13
+7 0 8
+6 2 1
+5 4 3
+
+Step : 14
+7 8 0
+6 2 1
+5 4 3
+
+Step : 15
+7 8 1
+6 2 0
+5 4 3
+
+Step : 16
+7 8 1
+6 2 3
+5 4 0
+
+Step : 17
+7 8 1
+6 2 3
+5 0 4
+
+Step : 18
+7 8 1
+6 2 3
+0 5 4
+
+Step : 19
+7 8 1
+0 2 3
+6 5 4
+
+Step : 20
+0 8 1
+7 2 3
+6 5 4
+
+Step : 21
+8 0 1
+7 2 3
+6 5 4
+
+Step : 22
+8 1 0
+7 2 3
+6 5 4
+
+Step : 23
+8 1 3
+7 2 0
+6 5 4
+
+Step : 24
+8 1 3
+7 2 4
+6 5 0
+
+Step : 25
+8 1 3
+7 2 4
+6 0 5
+
+Step : 26
+8 1 3
+7 2 4
+0 6 5
+
+Step : 27
+8 1 3
+0 2 4
+7 6 5
+
+Step : 28
+0 1 3
+8 2 4
+7 6 5
+
+Step : 29
+1 0 3
+8 2 4
+7 6 5
+
+Step : 30
+1 2 3
+8 0 4
+7 6 5
+
+The shortest path is 30 steps.
+Time to find an optimal solution DFBnB : 5306 ms
+Nodes expanded : 3649719 nodes.
+End L (length of optimal path) : 30
+
+Time to finish DFBnB : 57816 ms
+Nodes expanded when finished : 40837279 nodes.
