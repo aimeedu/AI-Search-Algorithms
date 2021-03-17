@@ -19,6 +19,8 @@ public class Main{
         // a.add(easy);
         a.add(medium);
         // a.add(hard);
+        // a.add(worst);
+
 
         for (int i=0; i<a.size(); i++){ 
             System.out.print(name[i]+" : \n");
@@ -33,11 +35,12 @@ public class Main{
             // System.out.print("----------------------------------------------------------------------\n");
 
             // // 3. Iterative deepening A* with Manhattan heuristic.
-            // p.solve_IDA_manhattan();
+            p.solve_IDA_manhattan();
             // System.out.print("----------------------------------------------------------------------\n");
 
             // 4. Depth-first Branch and Bound with Manhattan heuristic. 
-            p.solve_DFBB_manhattan();
+            // pass the limit of L as parameter.
+            p.solve_DFBB_manhattan(40);
 
             // Stack<Integer> s = new Stack<>();
             // s.push(1);

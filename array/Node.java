@@ -65,7 +65,7 @@ public class Node implements Comparable<Node>{
     }
 
     // calculate Manhattan heuristics
-    public void h_manhattan(int[] goal, int[] board) {
+    public int h_manhattan(int[] goal, int[] board) {
         int dim =3;
         int h = 0;
         for(int i = 0; i<goal.length; i++){
@@ -81,7 +81,7 @@ public class Node implements Comparable<Node>{
         this.h = h;
         this.f = h + g;
         // System.out.println("g = " + this.g +", h="+this.h+ ", f = " + this.f);
-        return;
+        return this.h;
         // return this.h;
     }
 
@@ -112,20 +112,20 @@ public class Node implements Comparable<Node>{
 
     @Override
     public int compareTo(Node n) {
-        return this.f-n.f;
-        // if (this.equals(n)) {
-        //     return 0;
-        // }
-        // else{
-        //     if (this.f != n.f) {
-        //         return this.f-n.f;
-        //     }else if (this.h != n.h){
-        //         return this.h-n.h;
-        //     }else if (this.g != n.g){
-        //         return this.g-n.g;
-        //     }
-        //     else return this.id-n.id;
-        // }
+        // return this.f-n.f;
+        if (this.equals(n)) {
+            return 0;
+        }
+        else{
+            if (this.f != n.f) {
+                return this.f-n.f;
+            }else if (this.h != n.h){
+                return this.h-n.h;
+            }else if (this.g != n.g){
+                return this.g-n.g;
+            }
+            else return this.id-n.id;
+        }
 
     }
 }

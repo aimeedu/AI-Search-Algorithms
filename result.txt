@@ -1,0 +1,51 @@
+hard:
+
+N_iter = 1, L = 10-------------------
+Time to solve Depth-first Branch and Bound with Manhattan heuristic : 12 ms
+Number of Nodes expanded : 483 nodes.
+
+End L (length of optimal path) : 10
+
+N_iter = 2, L = 12-------------------
+Time to solve Depth-first Branch and Bound with Manhattan heuristic : 6 ms
+Number of Nodes expanded : 1455 nodes.
+
+End L (length of optimal path) : 12
+
+N_iter = 3, L = 14-------------------
+Time to solve Depth-first Branch and Bound with Manhattan heuristic : 0 ms
+Number of Nodes expanded : 13 nodes.
+End L (length of optimal path) : 12
+Time to solve IDA* with Manhattan heuristic : 22 ms
+
+
+Worst:
+N_iter = 1, L = 24-------------------
+Time to solve Depth-first Branch and Bound with Manhattan heuristic : 1834 ms
+Number of Nodes expanded : 1417173 nodes.
+
+End L (length of optimal path) : 24
+
+N_iter = 2, L = 26-------------------
+Time to solve Depth-first Branch and Bound with Manhattan heuristic : 5263 ms
+Number of Nodes expanded : 4251525 nodes.
+
+End L (length of optimal path) : 26
+
+N_iter = 3, L = 28-------------------
+Time to solve Depth-first Branch and Bound with Manhattan heuristic : 14980 ms
+Number of Nodes expanded : 12754581 nodes.
+
+End L (length of optimal path) : 28
+
+N_iter = 4, L = 30-------------------
+Time to solve Depth-first Branch and Bound with Manhattan heuristic : 45362 ms
+Number of Nodes expanded : 38263749 nodes.
+
+End L (length of optimal path) : 30
+
+N_iter = 5, L = 32-------------------
+Time to solve Depth-first Branch and Bound with Manhattan heuristic : 3962 ms
+Number of Nodes expanded : 3228523 nodes.
+End L (length of optimal path) : 30
+Time to solve IDA* with Manhattan heuristic : 71406 ms

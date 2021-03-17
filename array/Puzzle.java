@@ -290,58 +290,81 @@ public class Puzzle{
         return;
     }
 
-    public void solve_DFBB_manhattan(){
+    boolean stop = false;
+    public PriorityQueue<Integer> solve_DFBB_manhattan(int limit){
         long startTime = System.currentTimeMillis();
         Stack<Node> open = new Stack<>();
         open.push(start_node);
-        int L = 100000;
+        int L = limit;
         int g = 0; 
         int total_expand_nodes = 0;
-        while(g<10){//!open.isEmpty()
+        PriorityQueue<Integer> pq = new PriorityQueue<>();
+        while(!open.isEmpty()){//!open.isEmpty()
             // System.out.println(open);
             Node cur = open.pop();
-            // g--;
-            System.out.println(cur);
+            // System.out.println(cur);
             total_expand_nodes++;
-            if (cur.equals(goal_node)){
+            if (cur.equals(goal_node)){ // reach the goal state.
                 int cost = build_sequence(cur);
                 L = Math.min(L, cost);  
-                System.out.println(L); 
+                stop = true;
+                long endTime = System.currentTimeMillis();
+                System.out.printf("Time to solve Depth-first Branch and Bound with Manhattan heuristic : " + (endTime-startTime) + " ms\n");
+                System.out.println("Number of Nodes expanded : " + total_expand_nodes+" nodes.");
+                System.out.print("End L (length of optimal path) : " + L + "\n");
+                return pq;
             }else{
                 g++;
                 List<int[]> neighbors = getNeighbors(cur.board);
-                PriorityQueue<Node> temp = new PriorityQueue<>((a,b)->b.f-a.f);
+                PriorityQueue<Node> temp = new PriorityQueue<>((a,b)->b.h-a.h);
                 for (int[] n : neighbors){
                     Node node = new Node(n);
-                    // if (!open.contains(node)){
-                        node.set_g(g);
+                    // !open.contains(node) ||
+                    if (cur.parent == null || !node.equals(cur.parent)){  
+                        node.g = g;
+                        // node.set_g(cur.g + 1);
                         node.h_manhattan(goal, n);
                         node.setParent(cur);
-                    
-                        if (cur.parent == null || !node.equals(cur.parent) ){
+                        // if (cur.parent == null || !node.equals(cur.parent) ){
                             int cost = build_sequence(node);
-                            if (cost <= L){
+                            if (cost < L){
                                 temp.offer(node);
                             }
-                        }
-                    // }
-
-
+                        // }
+                    }
                 }
                 while(!temp.isEmpty()){
-                    open.push(temp.poll());
+                    Node t = temp.poll();
+                    open.push(t);
+                    pq.add(t.f);
                 }
             }
         }
         long endTime = System.currentTimeMillis();
-        // System.out.println("Found path with " + g + " Steps!");
         System.out.printf("Time to solve Depth-first Branch and Bound with Manhattan heuristic : " + (endTime-startTime) + " ms\n");
-        System.out.println("Number of Nodes expanded : " + total_expand_nodes+"\n");
-        System.out.print("Optimal path : " + L +"\n");
+        System.out.println("Number of Nodes expanded : " + total_expand_nodes+" nodes.\n");
+        System.out.print("End L (length of optimal path) : " + L + "\n");
+        return pq;
     }
 
     public void solve_IDA_manhattan(){
-        return;
-    }
+        long startTime = System.currentTimeMillis();
+        int L = start_node.h_manhattan(goal, start);
+        int iter = 0;
+        while(!stop){
+            iter++;
+            System.out.print("\nN_iter = " +iter +", L = " + L +"-------------------\n");
+            PriorityQueue<Integer> pq  = solve_DFBB_manhattan(L);
 
+            while(!pq.isEmpty()){
+                int temp = pq.poll();
+                if (temp > L){
+                    L = temp;
+                    break;
+                }     
+            }
+        }
+        long endTime = System.currentTimeMillis();
+        System.out.printf("Time to solve IDA* with Manhattan heuristic : " + (endTime-startTime) + " ms\n");
+    }
 }
