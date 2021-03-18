@@ -20,25 +20,25 @@ public class Main{
             ArrayList<int[]> a = new ArrayList<>();
             String[] name = new String[]{"Easy", "Medium", "Hard", "Worst"};
             a.add(easy);
-            // a.add(medium);
-            // a.add(hard);
+            a.add(medium);
+            a.add(hard);
             // a.add(worst);
 
             for (int i=0; i<a.size(); i++){ 
                 output.write(name[i]+" : \n");
                 Puzzle p = new Puzzle(dim, goal, a.get(i));
                 
-                // // 1. Manhattan heuristic A* -> f(n) = g(n) current steps + h(n) heuristic value
-                // output.write("\n1. A* Manhattan ----------------------------------------------------------------------\n");
-                // p.solve_manhattan(output);
+                // 1. Manhattan heuristic A* -> f(n) = g(n) current steps + h(n) heuristic value
+                output.write("\n1. A* Manhattan ----------------------------------------------------------------------\n");
+                p.solve_manhattan(output);
                 
                 // 2. misplaced heuristic A* 
-                // output.write("\n2. A* Misplaced ----------------------------------------------------------------------\n");
-                // p.solve_misplaced(output);
+                output.write("\n2. A* Misplaced ----------------------------------------------------------------------\n");
+                p.solve_misplaced(output);
   
-                // // 3. Iterative deepening A* with Manhattan heuristic.
-                // output.write("\n3. IDA* Manhattan ----------------------------------------------------------------------\n");
-                // p.solve_IDA_manhattan(output);
+                // 3. Iterative deepening A* with Manhattan heuristic.
+                output.write("\n3. IDA* Manhattan ----------------------------------------------------------------------\n");
+                p.solve_IDA_manhattan(output);
 
                 // 4. Depth-first Branch and Bound with Manhattan heuristic. 
                 // pass the limit of L as parameter.
